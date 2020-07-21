@@ -1,0 +1,42 @@
+.connexion-container {
+  background: #ffffff;
+  font: bold 12px Verdana;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 45px;
+  border-radius: 12px 9px 12px;
+  border: none;
+  color: #555;
+  border-left: 8px solid #f4a521;
+
+  box-shadow: 1px 1px 3px #999;
+  padding: 70px;
+}
+
+.connexion-container .unbordersLogo {
+  margin-bottom: 5%;
+}
+.connexion-container .sign-up {
+  background-color: #f4a521;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  border: 2px solid #f4a521 !important;
+}
+.connexion-container .sign-up:hover,
+.connexion-container .sign-up:active {
+  background-color: white;
+  color: #f4a521;
+}
+
+.connexion-container .background {
+  background-color: #efefef;
+}
+
+.connexion-container .mdp {
+  color: #555;
+  text-decoration: #555;
+}
+
+.connexion-container .titreConnexion {
+  color: #f4a521;
+}
