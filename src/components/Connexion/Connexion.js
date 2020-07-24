@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 class Connexion extends Component {
   constructor(props) {
     super(props);
+    this.state = { email: null, password: null };
   }
 
   render() {
@@ -28,11 +29,7 @@ class Connexion extends Component {
                   <InputGroup.Prepend>
                     <InputGroup.Text>@</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl
-                    name="email"
-                    id="inlineFormInputGroup"
-                    placeholder="Email"
-                  />
+                  <FormControl name="email" id="email" placeholder="Email" />
                 </InputGroup>
               </Col>
               <Col xs="auto">
@@ -42,7 +39,7 @@ class Connexion extends Component {
                 <Form.Control
                   name="password"
                   className="mb-2"
-                  id="inlineFormInput"
+                  id="password"
                   placeholder="Password"
                   type="password"
                 />
@@ -57,9 +54,14 @@ class Connexion extends Component {
                 />
               </Col>
 
-              <Button type="submit" className="mb-2" className="sign-up">
+              <Button
+                type="submit"
+                className="mb-2"
+                onClick={this.loginClient} /*className="sign-up"*/
+              >
                 Se connecter
               </Button>
+              <p>{this.state.message}</p>
 
               <Link to="/inscription">
                 <Button type="submit" className="sign-up">
