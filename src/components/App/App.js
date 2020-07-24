@@ -4,30 +4,27 @@
 
 /*Module imports*/
 import React, { Component } from "react";
-//import Client from "../Profil/Profil";
-//import Inscription from "../Inscription/Inscription";
-import Connexion from "../Connexion/Connexion";
-import Footer from "../../assets/components/Footer/Footer";
-import { BrowserRouter as Router /*Route, Switch */ } from "react-router-dom";
+import Inscription from "../Inscription/Inscription";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Connexion from "../Connexion/Connexion";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+/*Main app component*/
 class App extends Component {
-  /* constructor(props) {
+  constructor(props) {
     super(props);
-  }*/
+  }
+
   render() {
     return (
-      <Router>
-        <div className="app">
-          <Connexion />
-          {/*<Switch>
+      <div>
+        <Router>
+          <Switch>
             <Route path="/Inscription" exact component={Inscription} />
-            <Route path="/Connexion" component={Connexion} />
-            <Route path="/Profil" component={Client} />
-          </Switch>*/}
-          <Footer />
-        </div>
-      </Router>
+            <Route path="/Connexion" exact component={Connexion} />
+          </Switch>
+        </Router>
+      </div>
     );
   }
 }

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./inscription.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+/*import FormControl from "react-bootstrap/FormControl";*/
+/*import { Link } from "react-router-dom";*/
 
 class Inscription extends Component {
   constructor(props) {
@@ -12,9 +14,9 @@ class Inscription extends Component {
       email: null,
       password: null,
       gender: null,
+      age: null,
       adress: null,
       phone: null,
-      age: null,
     };
   }
 
@@ -26,6 +28,9 @@ class Inscription extends Component {
   };
 
   addNewRegister = (e) => {
+    /*alert(
+      "Votre inscription a bien été prise en compte. Un email de confirmation vous a été envoyé. Merci"
+    );*/
     e.preventDefault();
     const data = {
       lastname: this.state.lastname,
@@ -33,9 +38,9 @@ class Inscription extends Component {
       email: this.state.email,
       password: this.state.password,
       gender: this.state.gender,
+      age: this.state.age,
       adress: this.state.adress,
       phone: this.state.phone,
-      age: this.state.age,
     };
 
     const headers = new Headers({
@@ -55,6 +60,7 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
+          /*this.props.history.push("/Home"); */ // pour affiher le profil
         },
 
         (error) => {
@@ -62,11 +68,6 @@ class Inscription extends Component {
         }
       );
   };
-
-  /*submit = (event) => {
-     event.preventDefault(); //empecher le formulaire de recharger la page};
-    console.log(this.state); // envoyé le contenu du formulaire dans la console
-  };*/
 
   render() {
     return (
@@ -81,8 +82,9 @@ class Inscription extends Component {
             <Form.Control
               type="text"
               placeholder="Nom"
-              name="nom"
+              name="lastname"
               onChange={this.change}
+              value={this.state.lastname}
             />
           </Form.Group>
           <Form.Group controlId="firstname">
@@ -90,8 +92,9 @@ class Inscription extends Component {
             <Form.Control
               type="text"
               placeholder="Prénom"
-              name="prenom"
+              name="firstname"
               onChange={this.change}
+              value={this.state.firstname}
             />
           </Form.Group>
 
@@ -99,12 +102,12 @@ class Inscription extends Component {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="mail"
-              placeholder="Email "
-              name="mail"
+              placeholder="email"
+              name="email"
               onChange={this.change}
+              value={this.state.email}
             />
           </Form.Group>
-
           <Form.Group controlId="password">
             <Form.Label>Mot de passe</Form.Label>
             <Form.Control
@@ -112,6 +115,7 @@ class Inscription extends Component {
               placeholder="Mot de passe"
               name="password"
               onChange={this.change}
+              value={this.state.password}
             />
           </Form.Group>
         </Form>
@@ -126,6 +130,7 @@ class Inscription extends Component {
               placeholder="Femme; Homme; Autre"
               name="genre"
               onChange={this.change}
+              value={this.state.gender}
             >
               <option>Femme</option>
               <option>Homme</option>
@@ -136,8 +141,9 @@ class Inscription extends Component {
             <Form.Control
               type="text"
               placeholder="Ville"
-              name="ville"
+              name="adress"
               onChange={this.change}
+              value={this.state.adress}
             />
           </Form.Group>
 
@@ -146,18 +152,19 @@ class Inscription extends Component {
             <Form.Control
               type="text"
               placeholder="Telephone"
-              name="tel"
+              name="phone"
               onChange={this.change}
+              value={this.state.phone}
             />
           </Form.Group>
-
           <Form.Group controlId="age">
             <Form.Label>Age</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Age"
+              placeholder="age"
               name="age"
               onChange={this.change}
+              value={this.state.age}
             />
           </Form.Group>
         </Form>
