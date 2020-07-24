@@ -103,7 +103,6 @@ class Inscription extends Component {
               name="mail"
               onChange={this.change}
             />
-            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
           <Form.Group controlId="password">
@@ -125,7 +124,7 @@ class Inscription extends Component {
               as="select"
               type="text"
               placeholder="Femme; Homme; Autre"
-              name="ville"
+              name="genre"
               onChange={this.change}
             >
               <option>Femme</option>
@@ -160,7 +159,6 @@ class Inscription extends Component {
               name="age"
               onChange={this.change}
             />
-            <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
         </Form>
 
