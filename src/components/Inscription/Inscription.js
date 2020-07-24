@@ -158,11 +158,11 @@ class Inscription extends Component {
               value={this.state.phone}
             />
           </Form.Group>
-          <Form.Group controlId="ages">
+          <Form.Group controlId="age">
             <Form.Label>Age</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Poste occupé"
+              placeholder="age"
               name="age"
               onChange={this.change}
               value={this.state.age}
