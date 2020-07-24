@@ -77,7 +77,13 @@ class Connexion extends Component {
                   <InputGroup.Prepend>
                     <InputGroup.Text>@</InputGroup.Text>
                   </InputGroup.Prepend>
-                  <FormControl name="email" id="email" placeholder="Email" />
+                  <FormControl
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    onChange={this.change}
+                    value={this.state.email}
+                  />
                 </InputGroup>
               </Col>
               <Col xs="auto">
@@ -90,6 +96,8 @@ class Connexion extends Component {
                   id="password"
                   placeholder="Password"
                   type="password"
+                  onChange={this.change}
+                  value={this.state.password}
                 />
               </Col>
 

@@ -56,7 +56,7 @@ class Client extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:3000/client/getDataClient", options)
+    fetch("http://localhost:4000/client/getDataClient", options)
       .then((response) => {
         return response.json();
       })
@@ -98,7 +98,7 @@ class Client extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:3000/client/edit", options)
+    fetch("http://localhost:4000/client/edit", options)
       .then((response) => {
         return response.json();
       })
@@ -137,7 +137,7 @@ class Client extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:3000/client/delete", options)
+    fetch("http://localhost:4000/client/delete", options)
       .then((response) => {
         return response.json();
       })
@@ -229,6 +229,7 @@ class Client extends Component {
               <option>Homme</option>
             </Form.Control>
           </Form.Group>
+
           <Form.Group controlId="adress">
             <Form.Label>Ville ou Code Postal</Form.Label>
             <Form.Control
