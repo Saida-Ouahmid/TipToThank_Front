@@ -1,13 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
-import Col from "react-bootstrap/Col";
-import FormControl from "react-bootstrap/FormControl";
+
 import React, { Component } from "react";
 import "./connexion.css";
 import { Link } from "react-router-dom";
-
-/*import { Link } from "react-router-dom";*/
 
 class Connexion extends Component {
   constructor(props) {
@@ -65,68 +61,59 @@ class Connexion extends Component {
     return (
       <div className="background">
         <div className="connexion-container">
-          <h1 className="titreConnexion">Connexion</h1>
+          <Form>
+            <Form.Label className="text">
+              Déjà membre? Connectez-vous !
+            </Form.Label>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Control
+                name="email"
+                type="email"
+                placeholder="Votre e-mail"
+                id="email"
+                onChange={this.change}
+                value={this.state.email}
+              />
+              <Form.Text className="text-muted"></Form.Text>
+            </Form.Group>
 
-          <Form className="identifiants">
-            <Form.Row className="align-items-center">
-              <Col xs="auto">
-                <Form.Label htmlFor="inlineFormInputGroup" srOnly>
-                  E-mail de connexion
-                </Form.Label>
-                <InputGroup className="mb-2">
-                  <InputGroup.Prepend>
-                    <InputGroup.Text>@</InputGroup.Text>
-                  </InputGroup.Prepend>
-                  <FormControl
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                    onChange={this.change}
-                    value={this.state.email}
-                  />
-                </InputGroup>
-              </Col>
-              <Col xs="auto">
-                <Form.Label htmlFor="inlineFormInput" srOnly>
-                  Mot de passe
-                </Form.Label>
-                <Form.Control
-                  name="password"
-                  className="mb-2"
-                  id="password"
-                  placeholder="Password"
-                  type="password"
-                  onChange={this.change}
-                  value={this.state.password}
-                />
-              </Col>
-
-              <Col xs="auto">
-                <Form.Check
-                  type="checkbox"
-                  id="autoSizingCheck"
-                  className="mb-2"
-                  label="Se souvenir de moi"
-                />
-              </Col>
-
-              <Button
-                type="submit"
+            <Form.Group controlId="formBasicPassword">
+              <Form.Control
+                name="password"
+                type="password"
+                placeholder="Mot de passe"
                 className="mb-2"
-                onClick={this.loginClient} /*className="sign-up"*/
-              >
-                Se connecter
+                id="password"
+                onChange={this.change}
+                value={this.state.password}
+              />
+            </Form.Group>
+
+            <Button
+              variant="outline-warning"
+              size="sm"
+              type="submit"
+              className="mb-2"
+              onClick={this.loginClient}
+            >
+              Se connecter
+            </Button>
+            <p>{this.state.message}</p>
+
+            <Button className="forgetpwd" variant="link" size="sm">
+              Mot de passe oublié ?
+            </Button>
+
+            <Form.Group>
+              <Form.Label className="text2">
+                Nouveau? Créer votre compte !
+              </Form.Label>
+            </Form.Group>
+            <Link to="/Inscription">
+              <Button variant="outline-warning" size="sm" type="submit">
+                S'inscrire
               </Button>
-              <p>{this.state.message}</p>
-
-              <Link to="/Inscription">
-                <Button type="submit" className="sign-up">
-                  S'inscrire
-                </Button>
-              </Link>
-            </Form.Row>
-
-            <p className="mdp">Mot de passe oublié</p>
+            </Link>
           </Form>
         </div>
       </div>

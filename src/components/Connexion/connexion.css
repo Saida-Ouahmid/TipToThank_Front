@@ -13,21 +13,6 @@
   padding: 70px;
 }
 
-.connexion-container .unbordersLogo {
-  margin-bottom: 5%;
-}
-.connexion-container .sign-up {
-  background-color: #f4a521;
-  font-size: 0.8rem;
-  border-radius: 8px;
-  border: 2px solid #f4a521 !important;
-}
-.connexion-container .sign-up:hover,
-.connexion-container .sign-up:active {
-  background-color: white;
-  color: #f4a521;
-}
-
 .connexion-container .background {
   background-color: #efefef;
 }
@@ -37,6 +22,19 @@
   text-decoration: #555;
 }
 
-.connexion-container .titreConnexion {
-  color: #f4a521;
+.text {
+  font-size: 15px;
+  font-weight: lighter;
+}
+.text2 {
+  font-size: 15px;
+  font-weight: lighter;
+  margin-top: 40px;
+  margin-bottom: -10px;
+}
+.forgetpwd {
+  font-size: 10px;
+  color: #999;
+  margin-left: -9px;
+  margin-top: -20px;
 }

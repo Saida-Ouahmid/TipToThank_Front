@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Connexion from "../Connexion/Connexion";
 import Profil from "../Profil/Profil";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+//import Footer from "../../assets/components/Footer/Footer";
 
 /*Main app component*/
 class App extends Component {
