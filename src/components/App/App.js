@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Connexion from "../Connexion/Connexion";
 import Profil from "../Profil/Profil";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePageClient from "../HomePageClient/HomePageClient";
 //import Footer from "../../assets/components/Footer/Footer";
 
 /*Main app component*/
@@ -25,6 +26,7 @@ class App extends Component {
             <Route path="/Inscription" exact component={Inscription} />
             <Route path="/Connexion" exact component={Connexion} />
             <Route path="/Profil" exact component={Profil} />
+            <Route path="/home" exact component={HomePageClient} />
           </Switch>
         </Router>
       </div>

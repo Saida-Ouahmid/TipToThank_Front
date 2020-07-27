@@ -1,0 +1,21 @@
+.connexion-container {
+  background: #ffffff;
+  font: bold 12px Verdana;
+  width: 40%;
+  margin: auto;
+  margin-bottom: 45px;
+  border-radius: 12px 9px 12px;
+  border: none;
+  color: #555;
+  border-left: 8px solid #f4a521;
+
+  box-shadow: 1px 1px 3px #999;
+  padding: 70px;
+}
+
+.connexion-container .Titre {
+  text-align: center;
+  color: #f4a521;
+  font-size: 13px;
+  text-decoration: underline;
+}
