@@ -105,10 +105,11 @@ class Connexion extends Component {
                   label="Se souvenir de moi"
                 />
               </Col>
-
-              <Button type="submit" className="mb-2" className="sign-up">
-                Se connecter
-              </Button>
+              <Link to="/Profil">
+                <Button type="submit" className="mb-2" className="sign-up">
+                  Se connecter
+                </Button>
+              </Link>
 
               <Link to="/Inscription">
                 <Button type="submit" className="sign-up">
