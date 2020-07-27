@@ -15,3 +15,8 @@
 .footer .navbar-light .navbar-brand:hover {
   color: #ffecb3;
 }
+
+.fab {
+  color: blue;
+  margin: 10px;
+}

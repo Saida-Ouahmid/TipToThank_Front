@@ -4,28 +4,30 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+//import Historique from "../Historique/Historique";
 
 /*style import*/
 import "./profil.css";
 
 class Client extends Component {
   constructor(props) {
+    console.log();
     super(props);
     this.state = {
       client: { historique: [] },
     };
   }
 
-  /*dataHistorique = () => {
+  /* dataHistorique = () => {
     let contentDataHistorique = [];
-    this.state.client.order.forEach((element, index) => {
+    this.state.client.historique.forEach((element, index) => {
       contentDataHistorique.push(
         <Historique
           key={index}
-          travel_name={element.travel_name}
-          travellers_number={element.travellers_number}
-          total_price={element.total_price}
-          travel_date={element.travel_date}
+          montant={element.montant}
+          waiter={element.waiter}
+          date={element.date}
+          restaurantName={element.restaurantName}
         />
       );
     });
@@ -274,29 +276,11 @@ class Client extends Component {
             Supprimer mon compte
           </Button>
         </ButtonGroup>
-
-        {/*<Button
-          className="button"
-          variant="outline-warning"
-          size="sm"
-          block
-          type="submit"
-          onClick={this.editClient}
-        >
-          Confirmer la modification
-        </Button>
-
-        <Button
-          className="button"
-          variant="outline-warning"
-          size="sm"
-          block
-          type="submit"
-          onClick={this.deleteClient}
-        >
-          Supprimer mon compte
-        </Button>*/}
         <p>{this.state.message}</p>
+
+        {/* <h3 className="tableau">Historique de vos tips</h3>
+
+    <div className="historique">{this.dataHistorique()}</div>*/}
       </div>
     );
   }
