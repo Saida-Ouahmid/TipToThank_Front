@@ -3,6 +3,7 @@ import React, { Component } from "react";
 //import Historique from "../Historique/Historique";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 /*style import*/
 import "./profil.css";
@@ -36,7 +37,7 @@ class Client extends Component {
     client[event.target.name] = event.target.value;
     this.setState({
       client: client,
-      // identifier name de l'input = choisir la valeur qui se trouve dans l'input
+      // identifier name de l'input = choisir la valeur qui se trouve dans l'input donc necessité d'avoir le bon name!!
     });
   };
 
@@ -117,6 +118,7 @@ class Client extends Component {
     window.confirm(
       "Etes-vous sur de vouloir supprimer votre compte? Cette action est irréversible."
     );
+
     e.preventDefault();
     const data = {
       userId: localStorage.getItem(
@@ -129,6 +131,8 @@ class Client extends Component {
     const headers = new Headers({
       "Content-Type": "application/json",
       Authorization: "bearer " + localStorage.getItem("token"),
+      /**"Bearer Token" est un JSON Web Token dont le rôle est d'indiquer que l'utilisateur 
+       qui accède aux ressources est bien authentifié. */
     });
 
     const options = {
@@ -157,13 +161,22 @@ class Client extends Component {
   };
   signOut = () => {
     localStorage.clear();
-    // this.props.history.push("/");
+    this.props.history.push("/Connexion");
   };
   render() {
     return (
       <div className="Bloc-principal">
         <div className="Titre">
           <p>Gestion de mon profil client</p>
+          <Button
+            className="button"
+            variant="outline-warning"
+            size="sm"
+            type="submit"
+            onClick={this.signOut}
+          >
+            Se déconnecter
+          </Button>
         </div>
         <Form>
           <p className="sous-titre"> Données requises </p>
@@ -172,7 +185,7 @@ class Client extends Component {
             <Form.Control
               type="text"
               placeholder="Nom"
-              name="nom"
+              name="lastname"
               value={this.state.client.lastname}
               onChange={this.change}
             />
@@ -183,31 +196,8 @@ class Client extends Component {
             <Form.Control
               type="text"
               placeholder="Prénom"
-              name="prenom"
+              name="firstname"
               value={this.state.client.firstname}
-              onChange={this.change}
-            />
-          </Form.Group>
-
-          <Form.Group controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="mail"
-              placeholder="Email "
-              name="mail"
-              value={this.state.client.email}
-              onChange={this.change}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-
-          <Form.Group controlId="password">
-            <Form.Label>Mot de passe</Form.Label>
-            <Form.Control
-              type="password"
-              placeholder="Mot de passe"
-              name="password"
-              value={this.state.client.password}
               onChange={this.change}
             />
           </Form.Group>
@@ -221,20 +211,22 @@ class Client extends Component {
               as="select"
               type="text"
               placeholder="Femme; Homme; Autre"
-              name="ville"
+              name="gender"
               value={this.state.client.gender}
               onChange={this.change}
             >
+              <option>-</option>
               <option>Femme</option>
               <option>Homme</option>
             </Form.Control>
           </Form.Group>
+
           <Form.Group controlId="adress">
             <Form.Label>Ville ou Code Postal</Form.Label>
             <Form.Control
               type="text"
               placeholder="Ville"
-              name="ville"
+              name="adress"
               value={this.state.client.adress}
               onChange={this.change}
             />
@@ -245,7 +237,7 @@ class Client extends Component {
             <Form.Control
               type="text"
               placeholder="Telephone"
-              name="tel"
+              name="phone"
               value={this.state.client.phone}
               onChange={this.change}
             />
@@ -263,22 +255,48 @@ class Client extends Component {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
         </Form>
-        <Button
-          className="submitButton"
-          variant="primary"
+
+        <ButtonGroup className="button" aria-label="Basic example">
+          <Button
+            variant="outline-warning"
+            size="sm"
+            type="submit"
+            onClick={this.editClient}
+          >
+            Modifier mon compte
+          </Button>
+          <Button
+            variant="outline-warning"
+            size="sm"
+            type="submit"
+            onClick={this.deleteClient}
+          >
+            Supprimer mon compte
+          </Button>
+        </ButtonGroup>
+
+        {/*<Button
+          className="button"
+          variant="outline-warning"
+          size="sm"
+          block
           type="submit"
           onClick={this.editClient}
         >
           Confirmer la modification
         </Button>
+
         <Button
-          className="submitButton"
-          variant="primary"
+          className="button"
+          variant="outline-warning"
+          size="sm"
+          block
           type="submit"
           onClick={this.deleteClient}
         >
           Supprimer mon compte
-        </Button>
+        </Button>*/}
+        <p>{this.state.message}</p>
       </div>
     );
   }

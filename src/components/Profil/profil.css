@@ -26,18 +26,6 @@ body {
   color: #f4a521;
 }
 
-.Bloc-principal .submitButton {
-  background-color: #f4a521;
-  font-size: 0.8rem;
-  border-radius: 8px;
-  border: 2px solid #f4a521 !important;
-}
-.Bloc-principal .submitButton:hover,
-.Bloc-principal .submitButton:active {
-  background-color: white;
-  color: #f4a521;
-}
-
 .Bloc-principal a {
   text-decoration: none !important;
 }
@@ -45,6 +33,7 @@ body {
   text-align: center;
   color: #f4a521;
   font-size: 20px;
+  font-weight: lighter;
 }
 
 .Titre {
@@ -56,6 +45,7 @@ body {
   font-size: 15px;
   margin-top: 50px;
   margin-bottom: 11px;
+  font-weight: lighter;
 }
 
 .Bloc-principal .formBasicCheckbox {
@@ -63,7 +53,6 @@ body {
   color: white;
 }
 
-.submitButton {
-  margin-left: 85px;
+.button {
   margin-top: 20px;
 }
