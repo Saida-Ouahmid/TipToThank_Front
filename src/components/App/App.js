@@ -10,6 +10,8 @@ import Connexion from "../Connexion/Connexion";
 import Profil from "../Profil/Profil";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "../../assets/components/Footer/Footer";
+import HomePageClient from "../HomePageClient/HomePageClient";
+//import Footer from "../../assets/components/Footer/Footer";
 
 /*Main app component*/
 class App extends Component {
@@ -25,6 +27,7 @@ class App extends Component {
             <Route path="/Inscription" exact component={Inscription} />
             <Route path="/Connexion" exact component={Connexion} />
             <Route path="/Profil" exact component={Profil} />
+            <Route path="/home" exact component={HomePageClient} />
           </Switch>
           <Footer />
         </Router>
