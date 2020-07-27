@@ -6,7 +6,7 @@ import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 class Footer extends Component {
   render() {
     return (
-      <div className="footer">
+      <div className="footer dropup">
         <Navbar collapseOnSelect expand="lg" bg="#edeaea">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -34,15 +34,6 @@ class Footer extends Component {
                   Sur instagram
                 </NavDropdown.Item>
               </NavDropdown>
-              <Navbar.Brand href="#home">
-                <img
-                  src="logoTTT/logotranspblanc.png"
-                  width="30"
-                  height="30"
-                  className="logo"
-                  alt="React Bootstrap logo"
-                />
-              </Navbar.Brand>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -52,3 +43,13 @@ class Footer extends Component {
 }
 
 export default Footer;
+
+/** <Navbar.Brand href="#home">
+                <img
+                  src="logoTTT/logotranspblanc.png"
+                  width="30"
+                  height="30"
+                  className="logo"
+                  alt="React Bootstrap logo"
+                />
+              </Navbar.Brand> */

@@ -33,21 +33,29 @@ body {
   text-align: center;
   color: #f4a521;
   font-size: 20px;
-  text-decoration: underline;
 }
 .sous-titre {
   text-align: center;
   color: #f4a521;
   font-size: 15px;
 }
-
+.form1 {
+  margin-top: -40px;
+}
+.form2 {
+  margin-bottom: 50px;
+}
+.asterisque {
+  font-size: 7px;
+  font-style: italic;
+  font-weight: lighter;
+  text-align: center;
+}
 .Bloc-principal .formBasicCheckbox {
   font-size: initial;
   color: white;
 }
-.button {
-  margin-top: 40px;
-}
+
 .reglemdp {
   font-size: 8px;
   color: #999;

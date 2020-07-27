@@ -83,7 +83,7 @@ class Inscription extends Component {
             </Col>
           </Row>
 
-          <Form>
+          <Form className="form1">
             <p className="sous-titre">Données requises </p>
             <Form.Group controlId="lastname">
               <Form.Label>Nom</Form.Label>
@@ -127,8 +127,7 @@ class Inscription extends Component {
               />
             </Form.Group>
           </Form>
-
-          <Form>
+          <Form className="form2">
             <p className="sous-titre">Données facultatives </p>
             <Form.Group controlId="gender">
               <Form.Label> Genre </Form.Label>
@@ -173,34 +172,36 @@ class Inscription extends Component {
             </Form.Group>
           </Form>
 
-          <Form>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                className="checkbox"
-                type="checkbox"
-                label="J'accepte les CGU et CGV."
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                className="checkbox"
-                type="checkbox"
-                label="J'accepte que mes données soient utilisés à des fins commerciales."
-              />
-            </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check
+              className="checkbox"
+              type="checkbox"
+              label="J'accepte les CGU et CGV.*"
+            />
 
-            <Button
-              className="button"
-              variant="outline-warning"
-              size="sm"
-              block
-              type="submit"
-              onClick={this.addNewRegister}
-            >
-              S'inscrire
-            </Button>
-            <p>{this.state.message}</p>
-          </Form>
+            <p className="asterisque">
+              * Vous pouvez retrouvez toutes les conditions en barre d'infos !
+            </p>
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check
+              className="checkbox"
+              type="checkbox"
+              label="J'accepte que mes données soient utilisés à des fins commerciales."
+            />
+          </Form.Group>
+          <Button
+            className="button"
+            variant="outline-warning"
+            size="sm"
+            block
+            type="submit"
+            onClick={this.addNewRegister}
+          >
+            S'inscrire
+          </Button>
+
+          <p>{this.state.message}</p>
         </div>
       </Container>
     );
