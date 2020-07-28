@@ -153,7 +153,7 @@ class Client extends Component {
           alert(
             "La suppression de votre compte a bien été prise en compte. Merci."
           );
-          //  this.props.history.push("/");
+          //  this.props.history.push("/home");
         },
 
         (error) => {
@@ -169,7 +169,7 @@ class Client extends Component {
     return (
       <div className="Bloc-principal">
         <div className="Titre">
-          <p>Gestion de mon profil client</p>
+          <p className="Titre-profil">Mon Profil Client</p>
           <Button
             className="button"
             variant="outline-warning"

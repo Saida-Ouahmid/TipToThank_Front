@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import "./inscription.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 
 /*import FormControl from "react-bootstrap/FormControl";*/
 
@@ -20,18 +18,29 @@ class Inscription extends Component {
       age: null,
       adress: null,
       phone: null,
+      cg: false,
     };
   }
 
   /*fonction pour ecrire dans nos input*/
   change = (event) => {
     this.setState({
-      [event.target.id]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
+      [event.target.name]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
+    });
+  };
+
+  checkboxchange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.checked, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
     });
   };
 
   addNewRegister = (e) => {
     e.preventDefault();
+    if (!this.state.cg) {
+      this.setState({ message: "Veuillez accepter les CGU-CGV. Merci." });
+      return;
+    }
     const data = {
       lastname: this.state.lastname,
       firstname: this.state.firstname,
@@ -60,9 +69,10 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-          /*this.props.history.push(
-            "/Connexion"
-          );  pour allez vers la page connexion une fois l'inscription done*/
+
+          if (responseObject.success === true) {
+            this.props.history.push("/Connexion");
+          } /* pour allez vers la page connexion une fois l'inscription done*/
         },
 
         (error) => {
@@ -75,13 +85,9 @@ class Inscription extends Component {
     return (
       <Container>
         <div className="Bloc-principal">
-          <Row>
-            <Col>
-              <div className="Titre">
-                <p>Formulaire d'inscription </p>
-              </div>
-            </Col>
-          </Row>
+          <div className="Titre">
+            <p>Formulaire d'inscription </p>
+          </div>
 
           <Form className="form1">
             <p className="sous-titre">Données requises </p>
@@ -177,6 +183,8 @@ class Inscription extends Component {
               className="checkbox"
               type="checkbox"
               label="J'accepte les CGU et CGV.*"
+              onChange={this.checkboxchange}
+              name="cg"
             />
 
             <p className="asterisque">
