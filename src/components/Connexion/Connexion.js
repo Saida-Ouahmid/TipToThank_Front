@@ -1,5 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Container from "react-bootstrap/Container";
 
 import React, { Component } from "react";
 import "./connexion.css";
@@ -59,64 +60,62 @@ class Connexion extends Component {
 
   render() {
     return (
-      <div className="background">
-        <div className="connexion-container">
-          <Form>
-            <Form.Label className="text">
-              Déjà membre? Connectez-vous !
-            </Form.Label>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
-                name="email"
-                type="email"
-                placeholder="Votre e-mail"
-                id="email"
-                onChange={this.change}
-                value={this.state.email}
-              />
-              <Form.Text className="text-muted"></Form.Text>
-            </Form.Group>
+      <Container className="blocprincipal ">
+        <Form>
+          <Form.Label className="text">
+            Déjà membre? Connectez-vous !
+          </Form.Label>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder="Votre e-mail"
+              id="email"
+              onChange={this.change}
+              value={this.state.email}
+            />
+            <Form.Text className="text-muted"></Form.Text>
+          </Form.Group>
 
-            <Form.Group controlId="formBasicPassword">
-              <Form.Control
-                name="password"
-                type="password"
-                placeholder="Mot de passe"
-                className="mb-2"
-                id="password"
-                onChange={this.change}
-                value={this.state.password}
-              />
-            </Form.Group>
-
-            <Button
-              variant="outline-warning"
-              size="sm"
-              type="submit"
+          <Form.Group controlId="formBasicPassword">
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder="Mot de passe"
               className="mb-2"
-              onClick={this.loginClient}
-            >
-              Se connecter
-            </Button>
-            <p>{this.state.message}</p>
+              id="password"
+              onChange={this.change}
+              value={this.state.password}
+            />
+          </Form.Group>
 
-            <Button className="forgetpwd" variant="link" size="sm">
-              Mot de passe oublié ?
-            </Button>
+          <Button
+            variant="outline-warning"
+            size="sm"
+            type="submit"
+            className="mb-2"
+            onClick={this.loginClient}
+          >
+            Se connecter
+          </Button>
+          <p>{this.state.message}</p>
 
-            <Form.Group>
-              <Form.Label className="text2">
-                Nouveau? Créer votre compte !
-              </Form.Label>
-            </Form.Group>
-            <Link to="/Inscription">
-              <Button variant="outline-warning" size="sm" type="submit">
-                S'inscrire
-              </Button>
-            </Link>
-          </Form>
-        </div>
-      </div>
+          <Button className="forgetpwd" variant="link" size="sm">
+            Mot de passe oublié ?
+          </Button>
+
+          <Form.Group>
+            <Form.Label className="text2">
+              Nouveau? Créer votre compte !
+            </Form.Label>
+          </Form.Group>
+          <Link to="/Inscription">
+            <Button variant="outline-warning" size="sm" type="submit">
+              S'inscrire
+            </Button>
+          </Link>
+        </Form>
+      </Container>
     );
   }
 }

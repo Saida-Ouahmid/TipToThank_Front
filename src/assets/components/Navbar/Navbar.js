@@ -1,24 +1,74 @@
 import React, { Component } from "react";
-import "./Navbar.css";
-import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-class Navbarr extends Component {
+import "./Navbar.css";
+import { Navbar, Nav } from "react-bootstrap";
+//import Deconnexion from "../Deconnexion/Deconnexion";
+
+class BarreMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  connect = () => {
+    if (localStorage.getItem("token") === null) {
+      return (
+        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+          <Nav className="justify-content-end">
+            <Nav.Link className="navlink">
+              <Link className="link" to="/Connexion">
+                Se connecter
+              </Link>
+            </Nav.Link>
+            <Nav.Link className="navlink">
+              <Link className="link" to="/Inscription">
+                S'inscrire
+              </Link>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      );
+    } else {
+      return (
+        <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
+          <Nav className="justify-content-end">
+            <Nav.Link className="navlink">
+              <Link className="link" to="/Profil">
+                Gérer mon compte
+              </Link>
+            </Nav.Link>
+            <Nav.Link className="navlink">
+              <Link className="link" to="/Historique">
+                Historique de pourboires
+              </Link>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      );
+    }
+  };
+
+  componentDidUpdate() {
+    this.connect();
+  }
   render() {
     return (
-      <div>
-        <Navbar className="mr-auto" fixed="top" className="barre-de-menu">
-          <Navbar.Brand onClick={() => localStorage.clear()}>deco</Navbar.Brand>
-          <Nav.Link className="navlink">
-            <Link to="/home" exact>
+      <div className="barre-de-menu">
+        <Navbar expand="lg">
+          <Nav.Link>
+            <Link to="/HomeGeneral">
               <img src="logoTTT/logotranspblanc.png" className="logo" />
             </Link>
           </Nav.Link>
-          <Navbar.Brand className="ttt">Tip To Thank</Navbar.Brand>
+          <Navbar.Toggle
+            className="justify-content-end"
+            aria-controls="basic-navbar-nav"
+          />
+          {this.connect()}
         </Navbar>
-        <div className="TiPourBoire"></div>
       </div>
     );
   }
 }
-export default Navbarr;
+export default BarreMenu;
