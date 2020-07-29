@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import { Link } from "react-router-dom";
 
 /*import FormControl from "react-bootstrap/FormControl";*/
 
@@ -20,9 +21,14 @@ class Inscription extends Component {
       age: null,
       adress: null,
       phone: null,
+      /*isChecked: true,*/
     };
   }
-
+  /* toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked,
+    });
+  };*/
   /*fonction pour ecrire dans nos input*/
   change = (event) => {
     this.setState({
@@ -73,136 +79,133 @@ class Inscription extends Component {
 
   render() {
     return (
-      <Container>
-        <div className="Bloc-principal">
-          <Row>
-            <Col>
-              <div className="Titre">
-                <p>Formulaire d'inscription </p>
-              </div>
-            </Col>
-          </Row>
-
-          <Form>
-            <p className="sous-titre">Données requises </p>
-            <Form.Group controlId="lastname">
-              <Form.Label>Nom</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Nom"
-                name="lastname"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="firstname">
-              <Form.Label>Prénom</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Prénom"
-                name="firstname"
-                onChange={this.change}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="email">
-              <Form.Label>Email</Form.Label>
-              <Form.Control
-                type="mail"
-                placeholder="example@gmail.com"
-                name="email"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="password">
-              <Form.Label>Mot de passe </Form.Label>
-              <p className="reglemdp">
-                Doit contenir au moins 8 caractères dont : une minuscule, une
-                majuscule, un chiffre et un caractère special.
-              </p>
-              <Form.Control
-                type="password"
-                placeholder="**************"
-                name="password"
-                onChange={this.change}
-              />
-            </Form.Group>
-          </Form>
-
-          <Form>
-            <p className="sous-titre">Données facultatives </p>
-            <Form.Group controlId="gender">
-              <Form.Label> Genre </Form.Label>
-              <Form.Control
-                as="select"
-                type="text"
-                name="gender"
-                onChange={this.change}
-              >
-                <option>-</option>
-                <option>Femme</option>
-                <option>Homme</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId="adress">
-              <Form.Label>Ville ou Code Postal</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Cannes, Nice, Mougins, 06200, ..."
-                name="adress"
-                onChange={this.change}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="phone">
-              <Form.Label>Numéro de téléphone</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="06XXXXXXXX"
-                name="phone"
-                onChange={this.change}
-              />
-            </Form.Group>
-            <Form.Group controlId="age">
-              <Form.Label>Age</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Votre âge ( sans vous rajeunir ;-) )"
-                name="age"
-                onChange={this.change}
-              />
-            </Form.Group>
-          </Form>
-
-          <Form>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                className="checkbox"
-                type="checkbox"
-                label="J'accepte les CGU et CGV."
-              />
-            </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check
-                className="checkbox"
-                type="checkbox"
-                label="J'accepte que mes données soient utilisés à des fins commerciales."
-              />
-            </Form.Group>
-
-            <Button
-              className="button"
-              variant="outline-warning"
-              size="sm"
-              block
-              type="submit"
-              onClick={this.addNewRegister}
-            >
-              S'inscrire
-            </Button>
-            <p>{this.state.message}</p>
-          </Form>
+      <div className="Bloc-principal">
+        <div className="Titre">
+          <p>Formulaire d'inscription </p>
         </div>
-      </Container>
+
+        <Form>
+          <p className="sous-titre">Données requises </p>
+          <Form.Group controlId="lastname">
+            <Form.Label>Nom</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Nom"
+              name="lastname"
+              onChange={this.change}
+            />
+          </Form.Group>
+          <Form.Group controlId="firstname">
+            <Form.Label>Prénom</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Prénom"
+              name="firstname"
+              onChange={this.change}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="email">
+            <Form.Label>Email</Form.Label>
+            <Form.Control
+              type="mail"
+              placeholder="example@gmail.com"
+              name="email"
+              onChange={this.change}
+            />
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Mot de passe </Form.Label>
+            <p className="reglemdp">
+              Doit contenir au moins 8 caractères dont : une minuscule, une
+              majuscule, un chiffre et un caractère special.
+            </p>
+            <Form.Control
+              type="password"
+              placeholder="**************"
+              name="password"
+              onChange={this.change}
+            />
+          </Form.Group>
+        </Form>
+
+        <Form>
+          <p className="sous-titre">Données facultatives </p>
+          <Form.Group controlId="gender">
+            <Form.Label> Genre </Form.Label>
+            <Form.Control
+              as="select"
+              type="text"
+              name="gender"
+              onChange={this.change}
+            >
+              <option>-</option>
+              <option>Femme</option>
+              <option>Homme</option>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group controlId="adress">
+            <Form.Label>Ville ou Code Postal</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Cannes, Nice, Mougins, 06200, ..."
+              name="adress"
+              onChange={this.change}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="phone">
+            <Form.Label>Numéro de téléphone</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="06XXXXXXXX"
+              name="phone"
+              onChange={this.change}
+            />
+          </Form.Group>
+          <Form.Group controlId="age">
+            <Form.Label>Age</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Votre âge ( sans vous rajeunir ;-) )"
+              name="age"
+              onChange={this.change}
+            />
+          </Form.Group>
+        </Form>
+
+        <Form>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check
+              className="checkbox"
+              type="checkbox"
+              /*checked={this.state.isChecked}
+                onChange={this.toggleChange}*/
+              label="J'accepte les CGU et CGV."
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check
+              className="checkbox"
+              type="checkbox"
+              label="J'accepte que mes données soient utilisés à des fins commerciales."
+            />
+          </Form.Group>
+
+          <Button
+            className="button"
+            variant="outline-warning"
+            size="sm"
+            block
+            type="submit"
+            onClick={this.addNewRegister}
+          >
+            S'inscrire
+          </Button>
+
+          <p>{this.state.message}</p>
+        </Form>
+      </div>
     );
   }
 }
