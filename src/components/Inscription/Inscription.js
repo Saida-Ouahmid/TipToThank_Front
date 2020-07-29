@@ -21,7 +21,11 @@ class Inscription extends Component {
       cg: false,
     };
   }
-
+  /* toggleChange = () => {
+    this.setState({
+      isChecked: !this.state.isChecked,
+    });
+  };*/
   /*fonction pour ecrire dans nos input*/
   change = (event) => {
     this.setState({
