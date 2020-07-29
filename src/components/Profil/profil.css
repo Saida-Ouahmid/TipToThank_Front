@@ -39,6 +39,9 @@ body {
 .Titre {
   margin-top: -40px;
 }
+.Titre-profil {
+  font-size: 30px;
+}
 .sous-titre {
   text-align: center;
   color: #f4a521;

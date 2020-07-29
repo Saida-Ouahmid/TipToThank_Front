@@ -16,6 +16,6 @@
 .connexion-container .Titre {
   text-align: center;
   color: #f4a521;
-  font-size: 13px;
-  text-decoration: underline;
+  font-size: 15px;
+  font-weight: lighter;
 }

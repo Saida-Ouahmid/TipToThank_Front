@@ -11,34 +11,34 @@ class HomePageClient extends Component {
         <div className="connexion-container">
           <Card className="text-center">
             <div className="Titre">
-              <Card.Header>Pourboire avec un compte TipToThank</Card.Header>
+              <Card.Header>Tips sans compte client </Card.Header>
             </div>
             <Card.Body>
               <Card.Text>
-                Pour donner un pourboire, veuillez-vous connecter à votre compte
-                TipToThank en cliquant sur le boutton ci-dessous.
+                Je veux donner un pourboire sans créer de compte.
               </Card.Text>
-              <Link to="/connexion">
-                <Button variant="outline-warning" size="sm">
-                  Go
-                </Button>
-              </Link>
+              <Button variant="outline-warning" size="sm">
+                Go !
+              </Button>
             </Card.Body>
           </Card>
         </div>
+
         <div className="connexion-container">
           <Card className="text-center">
             <div className="Titre">
-              <Card.Header>Pourboire sans compte TipToThank</Card.Header>
+              <Card.Header>Tips avec un compte client</Card.Header>
             </div>
             <Card.Body>
               <Card.Text>
-                Vous avez pas de compte TipToThank? cliquez sur le boutton
-                ci-dessous pour donner un pourboire.
+                Je veux créer un compte / me connecter pour donner un pourboire
+                et faire partie de la Team TiptoThank !
               </Card.Text>
-              <Button variant="outline-warning" size="sm">
-                Go
-              </Button>
+              <Link to="/connexion">
+                <Button variant="outline-warning" size="sm">
+                  Go !
+                </Button>
+              </Link>
             </Card.Body>
           </Card>
         </div>

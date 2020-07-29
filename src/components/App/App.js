@@ -10,8 +10,9 @@ import Connexion from "../Connexion/Connexion";
 import Profil from "../Profil/Profil";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "../../assets/components/Footer/Footer";
+import Navbarr from "../../assets/components/Navbar/Navbar";
 import HomePageClient from "../HomePageClient/HomePageClient";
-//import Footer from "../../assets/components/Footer/Footer";
+import Liste from "../ListeServeurs/ListeServeurs";
 
 /*Main app component*/
 class App extends Component {
@@ -23,11 +24,13 @@ class App extends Component {
     return (
       <div>
         <Router>
+          <Navbarr />
           <Switch>
             <Route path="/Inscription" exact component={Inscription} />
             <Route path="/Connexion" exact component={Connexion} />
             <Route path="/Profil" exact component={Profil} />
-            <Route path="/home" exact component={HomePageClient} />
+            <Route path="/Home" exact component={HomePageClient} />
+            <Route path="/ListeServeurs" exact component={Liste} />
           </Switch>
           <Footer />
         </Router>

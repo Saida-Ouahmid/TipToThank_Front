@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import "./inscription.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import { Link } from "react-router-dom";
 
 /*import FormControl from "react-bootstrap/FormControl";*/
 
@@ -21,7 +18,7 @@ class Inscription extends Component {
       age: null,
       adress: null,
       phone: null,
-      /*isChecked: true,*/
+      cg: false,
     };
   }
   /* toggleChange = () => {
@@ -32,12 +29,22 @@ class Inscription extends Component {
   /*fonction pour ecrire dans nos input*/
   change = (event) => {
     this.setState({
-      [event.target.id]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
+      [event.target.name]: event.target.value, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
+    });
+  };
+
+  checkboxchange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.checked, // identifier Id de l'input = choisir la valeur qui se trouve dans l'input
     });
   };
 
   addNewRegister = (e) => {
     e.preventDefault();
+    if (!this.state.cg) {
+      this.setState({ message: "Veuillez accepter les CGU-CGV. Merci." });
+      return;
+    }
     const data = {
       lastname: this.state.lastname,
       firstname: this.state.firstname,
@@ -66,9 +73,10 @@ class Inscription extends Component {
       .then(
         (responseObject) => {
           this.setState({ message: responseObject.message });
-          /*this.props.history.push(
-            "/Connexion"
-          );  pour allez vers la page connexion une fois l'inscription done*/
+
+          if (responseObject.success === true) {
+            this.props.history.push("/Connexion");
+          } /* pour allez vers la page connexion une fois l'inscription done*/
         },
 
         (error) => {
@@ -79,110 +87,113 @@ class Inscription extends Component {
 
   render() {
     return (
-      <div className="Bloc-principal">
-        <div className="Titre">
-          <p>Formulaire d'inscription </p>
-        </div>
+      <Container>
+        <div className="Bloc-principal">
+          <div className="Titre">
+            <p>Formulaire d'inscription </p>
+          </div>
 
-        <Form>
-          <p className="sous-titre">Données requises </p>
-          <Form.Group controlId="lastname">
-            <Form.Label>Nom</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Nom"
-              name="lastname"
-              onChange={this.change}
-            />
-          </Form.Group>
-          <Form.Group controlId="firstname">
-            <Form.Label>Prénom</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Prénom"
-              name="firstname"
-              onChange={this.change}
-            />
-          </Form.Group>
+          <Form className="form1">
+            <p className="sous-titre">Données requises </p>
+            <Form.Group controlId="lastname">
+              <Form.Label>Nom</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Nom"
+                name="lastname"
+                onChange={this.change}
+              />
+            </Form.Group>
+            <Form.Group controlId="firstname">
+              <Form.Label>Prénom</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Prénom"
+                name="firstname"
+                onChange={this.change}
+              />
+            </Form.Group>
 
-          <Form.Group controlId="email">
-            <Form.Label>Email</Form.Label>
-            <Form.Control
-              type="mail"
-              placeholder="example@gmail.com"
-              name="email"
-              onChange={this.change}
-            />
-          </Form.Group>
-          <Form.Group controlId="password">
-            <Form.Label>Mot de passe </Form.Label>
-            <p className="reglemdp">
-              Doit contenir au moins 8 caractères dont : une minuscule, une
-              majuscule, un chiffre et un caractère special.
-            </p>
-            <Form.Control
-              type="password"
-              placeholder="**************"
-              name="password"
-              onChange={this.change}
-            />
-          </Form.Group>
-        </Form>
+            <Form.Group controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="mail"
+                placeholder="example@gmail.com"
+                name="email"
+                onChange={this.change}
+              />
+            </Form.Group>
+            <Form.Group controlId="password">
+              <Form.Label>Mot de passe </Form.Label>
+              <p className="reglemdp">
+                Doit contenir au moins 8 caractères dont : une minuscule, une
+                majuscule, un chiffre et un caractère special.
+              </p>
+              <Form.Control
+                type="password"
+                placeholder="**************"
+                name="password"
+                onChange={this.change}
+              />
+            </Form.Group>
+          </Form>
+          <Form className="form2">
+            <p className="sous-titre">Données facultatives </p>
+            <Form.Group controlId="gender">
+              <Form.Label> Genre </Form.Label>
+              <Form.Control
+                as="select"
+                type="text"
+                name="gender"
+                onChange={this.change}
+              >
+                <option>-</option>
+                <option>Femme</option>
+                <option>Homme</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="adress">
+              <Form.Label>Ville ou Code Postal</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Cannes, Nice, Mougins, 06200, ..."
+                name="adress"
+                onChange={this.change}
+              />
+            </Form.Group>
 
-        <Form>
-          <p className="sous-titre">Données facultatives </p>
-          <Form.Group controlId="gender">
-            <Form.Label> Genre </Form.Label>
-            <Form.Control
-              as="select"
-              type="text"
-              name="gender"
-              onChange={this.change}
-            >
-              <option>-</option>
-              <option>Femme</option>
-              <option>Homme</option>
-            </Form.Control>
-          </Form.Group>
-          <Form.Group controlId="adress">
-            <Form.Label>Ville ou Code Postal</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Cannes, Nice, Mougins, 06200, ..."
-              name="adress"
-              onChange={this.change}
-            />
-          </Form.Group>
+            <Form.Group controlId="phone">
+              <Form.Label>Numéro de téléphone</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="06XXXXXXXX"
+                name="phone"
+                onChange={this.change}
+              />
+            </Form.Group>
+            <Form.Group controlId="age">
+              <Form.Label>Age</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Votre âge ( sans vous rajeunir ;-) )"
+                name="age"
+                onChange={this.change}
+              />
+            </Form.Group>
+          </Form>
 
-          <Form.Group controlId="phone">
-            <Form.Label>Numéro de téléphone</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="06XXXXXXXX"
-              name="phone"
-              onChange={this.change}
-            />
-          </Form.Group>
-          <Form.Group controlId="age">
-            <Form.Label>Age</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Votre âge ( sans vous rajeunir ;-) )"
-              name="age"
-              onChange={this.change}
-            />
-          </Form.Group>
-        </Form>
-
-        <Form>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check
               className="checkbox"
               type="checkbox"
-              /*checked={this.state.isChecked}
-                onChange={this.toggleChange}*/
-              label="J'accepte les CGU et CGV."
+              label="J'accepte les CGU et CGV.*"
+              onChange={this.checkboxchange}
+              name="cg"
             />
+
+            <p className="asterisque">
+              * Vous pouvez retrouvez toutes les conditions en barre d'infos !
+            </p>
           </Form.Group>
           <Form.Group controlId="formBasicCheckbox">
             <Form.Check
@@ -191,7 +202,6 @@ class Inscription extends Component {
               label="J'accepte que mes données soient utilisés à des fins commerciales."
             />
           </Form.Group>
-
           <Button
             className="button"
             variant="outline-warning"
@@ -204,8 +214,8 @@ class Inscription extends Component {
           </Button>
 
           <p>{this.state.message}</p>
-        </Form>
-      </div>
+        </div>
+      </Container>
     );
   }
 }
