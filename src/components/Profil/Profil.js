@@ -173,13 +173,12 @@ class Client extends Component {
         <p className="Titre-profil">MON PROFIL CLIENT</p>
         <div className="Titre">
           <Button
-            className="button"
+            className="buttondeco"
             variant="outline-warning"
-            size="sm"
             type="submit"
             onClick={this.signOut}
           >
-            Se déconnecter
+            <i class="fas fa-sign-out-alt"></i>
           </Button>
         </div>
         <Form>
@@ -255,24 +254,23 @@ class Client extends Component {
           </Form.Group>
         </Form>
 
-        <ButtonGroup className="button" aria-label="Basic example">
-          <Button
-            variant="outline-warning"
-            size="sm"
-            type="submit"
-            onClick={this.editClient}
-          >
-            Modifier mon compte
-          </Button>
-          <Button
-            variant="outline-warning"
-            size="sm"
-            type="submit"
-            onClick={this.deleteClient}
-          >
-            Supprimer mon compte
-          </Button>
-        </ButtonGroup>
+        <Button
+          className="buttonedit"
+          variant="outline-warning"
+          type="submit"
+          onClick={this.editClient}
+        >
+          <i class="fas fa-user-edit"></i>
+        </Button>
+        <Button
+          className="buttondelete"
+          variant="outline-warning"
+          type="submit"
+          onClick={this.deleteClient}
+        >
+          <i class="far fa-trash-alt"></i>
+        </Button>
+        <br />
         <p>{this.state.message}</p>
 
         {/* <h3 className="tableau">Historique de vos tips</h3>

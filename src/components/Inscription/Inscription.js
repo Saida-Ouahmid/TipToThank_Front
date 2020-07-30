@@ -211,7 +211,7 @@ class Inscription extends Component {
         >
           S'inscrire
         </Button>
-        <p></p>
+        <br />
         <p>{this.state.message}</p>
       </Container>
     );
