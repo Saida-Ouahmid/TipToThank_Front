@@ -33,7 +33,7 @@ class Footer extends Component {
             <Nav>
               <NavDropdown title="Nous contacter" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="mailto:tiptothank@gmail.com">
-                  Par mail
+                  Par e-mail
                 </NavDropdown.Item>
                 <NavDropdown.Item href="https://facebook.fr">
                   Sur facebook
