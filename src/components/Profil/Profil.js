@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Container from "react-bootstrap/Container";
+
 //import Historique from "../Historique/Historique";
 
 /*style import*/
@@ -167,9 +169,9 @@ class Client extends Component {
   };
   render() {
     return (
-      <div className="Bloc-principal">
+      <Container className="blocprincipal ">
+        <p className="Titre-profil">MON PROFIL CLIENT</p>
         <div className="Titre">
-          <p className="Titre-profil">Mon Profil Client</p>
           <Button
             className="button"
             variant="outline-warning"
@@ -181,7 +183,6 @@ class Client extends Component {
           </Button>
         </div>
         <Form>
-          <p className="sous-titre"> Données requises </p>
           <Form.Group controlId="lastname">
             <Form.Label>Nom</Form.Label>
             <Form.Control
@@ -203,16 +204,12 @@ class Client extends Component {
               onChange={this.change}
             />
           </Form.Group>
-        </Form>
 
-        <Form>
-          <p className="sous-titre">Données facultatives </p>
           <Form.Group controlId="gender">
             <Form.Label> Genre </Form.Label>
             <Form.Control
               as="select"
               type="text"
-              placeholder="Femme; Homme; Autre"
               name="gender"
               value={this.state.client.gender}
               onChange={this.change}
@@ -227,7 +224,7 @@ class Client extends Component {
             <Form.Label>Ville ou Code Postal</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Ville"
+              placeholder="Cannes, Nice, Mougins, 06200, ..."
               name="adress"
               value={this.state.client.adress}
               onChange={this.change}
@@ -238,7 +235,7 @@ class Client extends Component {
             <Form.Label>Numéro de téléphone</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Telephone"
+              placeholder="06XXXXXXXX"
               name="phone"
               value={this.state.client.phone}
               onChange={this.change}
@@ -249,7 +246,7 @@ class Client extends Component {
             <Form.Label>Age</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Age"
+              placeholder="Votre âge ( sans vous rajeunir ;-) )"
               name="age"
               value={this.state.client.age}
               onChange={this.change}
@@ -281,7 +278,7 @@ class Client extends Component {
         {/* <h3 className="tableau">Historique de vos tips</h3>
 
     <div className="historique">{this.dataHistorique()}</div>*/}
-      </div>
+      </Container>
     );
   }
 }

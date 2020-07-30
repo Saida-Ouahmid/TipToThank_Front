@@ -10,10 +10,9 @@ import Connexion from "../Connexion/Connexion";
 import Profil from "../Profil/Profil";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Footer from "../../assets/components/Footer/Footer";
-import Navbarr from "../../assets/components/Navbar/Navbar";
 import HomePageClient from "../HomePageClient/HomePageClient";
 import Liste from "../ListeServeurs/ListeServeurs";
-
+import BarreMenu from "../../assets/components/Navbar/Navbar";
 /*Main app component*/
 class App extends Component {
   /* constructor(props) {
@@ -24,7 +23,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Navbarr />
+          <BarreMenu />
           <Switch>
             <Route path="/Inscription" exact component={Inscription} />
             <Route path="/Connexion" exact component={Connexion} />

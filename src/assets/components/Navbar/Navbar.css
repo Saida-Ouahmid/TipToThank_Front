@@ -1,44 +1,42 @@
 .barre-de-menu {
-  padding: 10px 20px;
+  position: fixed;
+  z-index: 10000;
+  top: 0%;
+  left: -1%;
+  right: 0%;
+  padding: 0 20px;
   box-shadow: 8px 3px 10px rgba(77, 77, 77, 0.589);
   background-color: #f4a521;
-  height: 90px;
   justify-content: space-between;
 }
-.barre-de-menu .mr-auto {
-  margin: 0px !important;
-}
 
+.nav-link {
+  margin-left: 120px;
+}
 .barre-de-menu .logo {
-  height: 90px;
+  height: 60px;
   display: block;
-  margin-top: -15px;
-  margin-left: 100px;
 }
 
-.barre-de-menu .TiPourBoire {
-  padding-right: 90vh;
-  font-size: -webkit-xxx-large;
+.barre-de-menu .basic-navbar-nav .navlink {
+  justify-content: right;
   color: white;
-  margin-top: 10px;
 }
-.barre-de-menu .navlink1 {
+
+.barre-de-menu .navbar-light .navbar-brand {
   font-size: 20px;
-  line-height: inherit;
-  color: black;
-  background-color: transparent;
-  height: 50px;
-  padding: 10px;
-  margin: 0px;
-  margin-top: 5%;
-}
-.titre {
-  text-align: end;
-}
-.logo {
-  align-content: center;
-}
-.navbar-light .navbar-brand {
   color: white;
-  text-align: center;
+}
+
+.barre-de-menu .navbar {
+  padding: 0 1rem;
+}
+
+.barre-de-menu .link:hover {
+  text-decoration: none;
+  color: #ffecb3;
+}
+.barre-de-menu .link {
+  color: white;
+  margin: 10px;
 }
