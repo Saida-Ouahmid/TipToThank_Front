@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Cards from "../../assets/components/Cards/Cards";
 import { Card, CardDeck } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
@@ -6,24 +7,22 @@ class Liste extends Component {
   constructor(props) {
     console.log();
     super(props);
-    this.state = {};
+    this.state = { serveur: [] };
+  }
+
+  componentDidMount() {
+    this.postDataServeurs();
   }
 
   postDataServeurs = (e) => {
-    e.preventDefault();
-    const data = {
-      lastname: this.state.lastname,
-      firstname: this.state.firstname,
-    };
-
     const headers = new Headers({
       "Content-Type": "application/json",
     });
 
     const options = {
-      method: "POST",
-      body: JSON.stringify(data),
+      method: "GET",
       headers: headers,
+      /*body: JSON.stringify(data),*/
     };
 
     fetch("http://localhost:4000/client/getDataServeur", options)
@@ -31,8 +30,8 @@ class Liste extends Component {
         return response.json();
       })
       .then(
-        (responseObject) => {
-          this.setState({ message: responseObject.message });
+        (data) => {
+          this.setState({ serveur: data });
         },
 
         (error) => {
@@ -40,18 +39,26 @@ class Liste extends Component {
         }
       );
   };
+
+  display = () => {
+    let contentDisplay = [];
+    this.state.serveur.forEach((element, index) => {
+      contentDisplay.push(
+        <Cards
+          key={index}
+          lastname={element.lastname}
+          firstname={element.firstname}
+        />
+      );
+    });
+
+    return contentDisplay;
+  };
+
   render() {
     return (
-      <div className="background">
-        <CardDeck>
-          <Card>
-            <Card.Body>
-              <Card.Title value={this.state.lastname}></Card.Title>
-              <Card.Text value={this.state.firstname}> </Card.Text>
-            </Card.Body>
-          </Card>
-        </CardDeck>
-        <Button></Button>
+      <div className="wrapper">
+        <div>{this.display()}</div>
       </div>
     );
   }
