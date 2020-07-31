@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import "./Footer.css";
+import "./footer.css";
 class Footer extends Component {
   render() {
     return (
@@ -15,7 +15,9 @@ class Footer extends Component {
           <Navbar.Brand href="#home" className="textFooter">
             #TiptoThank
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav">
+            <i class="fas fa-book-open"></i>
+          </Navbar.Toggle>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="mr-auto">
               <NavDropdown
@@ -33,13 +35,13 @@ class Footer extends Component {
             <Nav>
               <NavDropdown title="Nous contacter" id="collasible-nav-dropdown">
                 <NavDropdown.Item href="mailto:tiptothank@gmail.com">
-                  Par e-mail
+                  <i class="far fa-envelope"></i>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="https://facebook.fr">
-                  Sur facebook
+                  <i class="fab fa-facebook-f"></i>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="https://instagram.fr">
-                  Sur instagram
+                  <i class="fab fa-instagram"></i>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>

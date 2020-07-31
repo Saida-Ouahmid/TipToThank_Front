@@ -3,7 +3,6 @@ import React, { Component } from "react";
 //import Historique from "../Historique/Historique";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";
 
 //import Historique from "../Historique/Historique";
@@ -155,7 +154,7 @@ class Client extends Component {
           alert(
             "La suppression de votre compte a bien été prise en compte. Merci."
           );
-          //  this.props.history.push("/home");
+          this.props.history.push("/Home");
         },
 
         (error) => {
@@ -173,13 +172,12 @@ class Client extends Component {
         <p className="Titre-profil">MON PROFIL CLIENT</p>
         <div className="Titre">
           <Button
-            className="button"
+            className="buttondeco"
             variant="outline-warning"
-            size="sm"
             type="submit"
             onClick={this.signOut}
           >
-            Se déconnecter
+            <i class="fas fa-sign-out-alt"></i>
           </Button>
         </div>
         <Form>
@@ -254,27 +252,24 @@ class Client extends Component {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
         </Form>
-
-        <ButtonGroup className="button" aria-label="Basic example">
-          <Button
-            variant="outline-warning"
-            size="sm"
-            type="submit"
-            onClick={this.editClient}
-          >
-            Modifier mon compte
-          </Button>
-          <Button
-            variant="outline-warning"
-            size="sm"
-            type="submit"
-            onClick={this.deleteClient}
-          >
-            Supprimer mon compte
-          </Button>
-        </ButtonGroup>
+        <Button
+          className="buttonedit"
+          variant="outline-warning"
+          type="submit"
+          onClick={this.editClient}
+        >
+          <i class="fas fa-user-edit"></i>
+        </Button>
+        <Button
+          className="buttondelete"
+          variant="outline-warning"
+          type="submit"
+          onClick={this.deleteClient}
+        >
+          <i class="far fa-trash-alt"></i>
+        </Button>
+        <br /> <br /> <br />
         <p>{this.state.message}</p>
-
         {/* <h3 className="tableau">Historique de vos tips</h3>
 
     <div className="historique">{this.dataHistorique()}</div>*/}

@@ -30,7 +30,24 @@ body {
   font-size: initial;
   color: white;
 }
+.buttondeco {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  height: 35px;
+  width: 50px;
+}
 
-.button {
+.buttonedit {
   margin-top: 20px;
+  margin-left: 65px;
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+.buttondelete {
+  margin-top: 20px;
+  margin-right: 65px;
+  float: right;
+  height: 50px;
+  width: 50px;
 }

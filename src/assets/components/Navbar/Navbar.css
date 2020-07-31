@@ -14,7 +14,7 @@
   margin-left: 120px;
 }
 .barre-de-menu .logo {
-  height: 60px;
+  height: 45px;
   display: block;
 }
 
@@ -39,4 +39,7 @@
 .barre-de-menu .link {
   color: white;
   margin: 10px;
+}
+.justify-content-end {
+  margin-right: -25px;
 }
