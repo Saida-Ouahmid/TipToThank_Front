@@ -49,7 +49,10 @@ class BarreMenu extends Component {
     }
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
+    this.connect();
+  }
+  componentDidUpdate(prevprops) {
     this.connect();
   }
   render() {

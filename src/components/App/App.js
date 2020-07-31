@@ -13,6 +13,13 @@ import Footer from "../../assets/components/Footer/Footer";
 import HomePageClient from "../HomePageClient/HomePageClient";
 import Liste from "../ListeServeurs/ListeServeurs";
 import BarreMenu from "../../assets/components/Navbar/Navbar";
+import Payment from "../Payment/Payment";
+
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+// loadStripe is initialized with a fake API key.
+// Sign in to see examples pre-filled with your key.
+
 /*Main app component*/
 class App extends Component {
   /* constructor(props) {
@@ -30,6 +37,7 @@ class App extends Component {
             <Route path="/Profil" exact component={Profil} />
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
+            <Route path="/Payment" exact component={Payment} />
           </Switch>
           <Footer />
         </Router>
