@@ -64,7 +64,9 @@ class BarreMenu extends Component {
           <Navbar.Toggle
             className="justify-content-end"
             aria-controls="basic-navbar-nav"
-          />
+          >
+            <i class="fas fa-ellipsis-v"></i>
+          </Navbar.Toggle>
           {this.connect()}
         </Navbar>
       </div>

@@ -3,7 +3,6 @@ import React, { Component } from "react";
 //import Historique from "../Historique/Historique";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from "react-bootstrap/Container";
 
 //import Historique from "../Historique/Historique";
@@ -155,7 +154,7 @@ class Client extends Component {
           alert(
             "La suppression de votre compte a bien été prise en compte. Merci."
           );
-          //  this.props.history.push("/home");
+          this.props.history.push("/Home");
         },
 
         (error) => {
@@ -253,7 +252,6 @@ class Client extends Component {
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
         </Form>
-
         <Button
           className="buttonedit"
           variant="outline-warning"
@@ -270,9 +268,8 @@ class Client extends Component {
         >
           <i class="far fa-trash-alt"></i>
         </Button>
-        <br />
+        <br /> <br /> <br />
         <p>{this.state.message}</p>
-
         {/* <h3 className="tableau">Historique de vos tips</h3>
 
     <div className="historique">{this.dataHistorique()}</div>*/}

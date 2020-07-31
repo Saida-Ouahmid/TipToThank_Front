@@ -40,3 +40,6 @@
   color: white;
   margin: 10px;
 }
+.justify-content-end {
+  margin-right: -25px;
+}

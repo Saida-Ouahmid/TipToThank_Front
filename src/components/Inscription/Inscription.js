@@ -75,8 +75,11 @@ class Inscription extends Component {
           this.setState({ message: responseObject.message });
 
           if (responseObject.success === true) {
+            alert(
+              "Votre inscription a bien été prise en compte. Vous pouvez désormais accéder à votre compte"
+            );
             this.props.history.push("/Connexion");
-          } /* pour allez vers la page connexion une fois l'inscription done*/
+          } /* pour allez vers la page connexion une fois l'inscription done--success déclaré en back*/
         },
 
         (error) => {

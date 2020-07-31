@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import Cards from "../../assets/components/Cards/Cards";
-import { Card, CardDeck } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
 
 class Liste extends Component {
   constructor(props) {

@@ -15,3 +15,6 @@
 .footer .navbar-light .navbar-brand:hover {
   color: #ffecb3;
 }
+.navbar-toggler {
+  border: unset;
+}

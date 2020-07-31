@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, CardDeck } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 class Cards extends Component {

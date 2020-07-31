@@ -13,6 +13,7 @@ import Footer from "../../assets/components/Footer/Footer";
 import HomePageClient from "../HomePageClient/HomePageClient";
 import Liste from "../ListeServeurs/ListeServeurs";
 import BarreMenu from "../../assets/components/Navbar/Navbar";
+import DailyMenu from "../Menu/Menu";
 /*Main app component*/
 class App extends Component {
   /* constructor(props) {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route path="/Profil" exact component={Profil} />
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
+            <Route path="/Menu" exact component={DailyMenu} />
           </Switch>
           <Footer />
         </Router>
