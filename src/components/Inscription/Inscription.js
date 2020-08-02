@@ -205,7 +205,7 @@ class Inscription extends Component {
           />
         </Form.Group>
         <Button
-          className="button"
+          className="buttonInscri"
           variant="outline-warning"
           size="sm"
           block

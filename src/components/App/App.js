@@ -14,6 +14,7 @@ import HomePageClient from "../HomePageClient/HomePageClient";
 import Liste from "../ListeServeurs/ListeServeurs";
 import BarreMenu from "../../assets/components/Navbar/Navbar";
 import Payment from "../Payment/Payment";
+import Menu from "../Menu/Menu";
 
 // Make sure to call loadStripe outside of a component’s render to avoid
 // recreating the Stripe object on every render.
@@ -38,6 +39,7 @@ class App extends Component {
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
             <Route path="/Payment" exact component={Payment} />
+            <Route path="/Menu" exact component={Menu} />
           </Switch>
           <Footer />
         </Router>

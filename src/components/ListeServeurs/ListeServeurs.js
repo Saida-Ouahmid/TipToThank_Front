@@ -56,9 +56,9 @@ class Liste extends Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <h1>LISTE DES SERVEURS</h1>
-        <div>{this.display()}</div>
+      <div>
+        <h1 className="Titre">Liste des Serveurs</h1>
+        {this.display()}
       </div>
     );
   }
