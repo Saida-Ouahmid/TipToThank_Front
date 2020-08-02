@@ -44,6 +44,7 @@ class Liste extends Component {
       contentDisplay.push(
         <Cards
           key={index}
+          image={element.picture}
           lastname={element.lastname}
           firstname={element.firstname}
         />
@@ -56,6 +57,7 @@ class Liste extends Component {
   render() {
     return (
       <div className="wrapper">
+        <h1>LISTE DES SERVEURS</h1>
         <div>{this.display()}</div>
       </div>
     );

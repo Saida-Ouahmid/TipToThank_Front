@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 
 class Cards extends Component {
@@ -9,16 +9,21 @@ class Cards extends Component {
   }
   render() {
     return (
-      <div>
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>{this.props.lastname}</Card.Title>
-            <Card.Text>{this.props.firstname}</Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      </div>
+      <Row>
+        <Col sm={12} md={12} lg={4}>
+          <Card>
+            <Card.Img
+              variant="top"
+              src={"http://localhost:4000" + this.props.image}
+            />
+            <Card.Body>
+              <Card.Title>{this.props.lastname}</Card.Title>
+              <Card.Text>{this.props.firstname}</Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     );
   }
 }
