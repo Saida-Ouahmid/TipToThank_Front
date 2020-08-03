@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import "./Footer.css";
+import "./footer.css";
 class Footer extends Component {
   render() {
     return (
@@ -9,7 +9,7 @@ class Footer extends Component {
           collapseOnSelect
           expand="sm"
           bg="#edeaea"
-          sticky="bottom"
+          fixed="bottom"
           className="footer"
         >
           <Navbar.Brand href="#home" className="textFooter">
@@ -43,6 +43,21 @@ class Footer extends Component {
                 <NavDropdown.Item href="https://instagram.fr">
                   <i class="fab fa-instagram"></i>
                 </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav className="mr-auto">
+              <NavDropdown title="Langues" id="collasible-nav-dropdown">
+                <NavDropdown.Item>Francais</NavDropdown.Item>
+                <NavDropdown.Item>English</NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+            <Nav className="mr-auto">
+              <NavDropdown
+                title="A propos de TiptoThank"
+                id="collasible-nav-dropdown"
+              >
+                <NavDropdown.Item>Les fondateurs</NavDropdown.Item>
+                <NavDropdown.Item>Etcetera</NavDropdown.Item>
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>

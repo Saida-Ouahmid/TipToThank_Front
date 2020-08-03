@@ -66,7 +66,7 @@ class Inscription extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:4000/client/register", options)
+    fetch("http://localhost:8080/client/register", options)
       .then((response) => {
         return response.json();
       })

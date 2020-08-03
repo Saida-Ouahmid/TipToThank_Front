@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./checkoutForm.css";
+import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import "./checkoutForm.css";
+import { Form, Button, Container } from "react-bootstrap";
 export default function CheckoutForm(props) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
@@ -92,21 +93,24 @@ export default function CheckoutForm(props) {
     //pour swicher vers le payement CB quand le montant est validé
     if (!showPayment) {
       return (
-        <form onSubmit={createPaymentIntent}>
-          <label>
-            Montant:
-            <input
-              type="number"
-              step="0.01" // le minum entre deux montant
-              min="0"
-              name="amount"
-              onChange={(e) => setAmount(e.target.value)}
-              value={amount}
-            />
-          </label>
-
-          <input type="submit" value="Envoyer" />
-        </form>
+        <Container className="blocprincipal">
+          <Form onSubmit={createPaymentIntent}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Montant du pourboire en € :</Form.Label>
+              <Form.Control
+                type="number"
+                min="0"
+                step="0.01" // le minum entre deux montant
+                name="amount"
+                onChange={(e) => setAmount(e.target.value)}
+                value={amount}
+              />
+            </Form.Group>
+            <Button variant="outline-warning" size="sm" type="submit">
+              Donner
+            </Button>
+          </Form>
+        </Container>
       );
     }
     return (
@@ -118,7 +122,11 @@ export default function CheckoutForm(props) {
         />
         <button disabled={processing || disabled || succeeded} id="submit">
           <span id="button-text">
-            {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
+            {processing ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              "Envoyer le tips"
+            )}
           </span>
         </button>
         {/* Show any error that happens when processing the payment */}
@@ -128,9 +136,9 @@ export default function CheckoutForm(props) {
           </div>
         )}
         {/* Show a success message upon completion */}
-        <p className={succeeded ? "result-message" : "result-message hidden"}>
-          merci de votre pourboire
-        </p>
+        <p
+          className={succeeded ? "result-message" : "result-message hidden"}
+        ></p>
       </form>
     );
   };
