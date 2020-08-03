@@ -8,6 +8,16 @@ class Cards extends Component {
     super(props);
     this.state = {};
   }
+
+  click = () => {
+    this.props.history.push({
+      pathname: "/Payment",
+      state: {
+        serveurId: this.props.id,
+      },
+    });
+  };
+
   render() {
     return (
       <Container className="blocprincipal">
@@ -19,11 +29,10 @@ class Cards extends Component {
           <Card.Body>
             <Card.Title>{this.props.lastname}</Card.Title>
             <Card.Text>{this.props.firstname}</Card.Text>
-            <Link to="/Payment">
-              <Button variant="warning" size="sm">
-                Donner un Tip
-              </Button>
-            </Link>
+
+            <Button variant="warning" size="sm" onClick={this.click}>
+              Donner un Tip
+            </Button>
           </Card.Body>
         </Card>
       </Container>
