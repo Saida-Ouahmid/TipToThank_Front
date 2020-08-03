@@ -52,7 +52,7 @@ export default function CheckoutForm(props) {
       setProcessing(false);
     } else {
       const response = await fetch(
-        "http://localhost:4000/serveur/addtowallet",
+        "http://localhost:8080/serveur/addtowallet",
         {
           method: "POST",
           headers: {
