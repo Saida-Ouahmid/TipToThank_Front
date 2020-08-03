@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 class Cards extends Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class Cards extends Component {
             <Card.Body>
               <Card.Title>{this.props.lastname}</Card.Title>
               <Card.Text>{this.props.firstname}</Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Link to="/Payment">
+                <Button variant="primary">Go somewhere</Button>
+              </Link>
             </Card.Body>
           </Card>
         </Col>
