@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
-import "./footer.css";
+import "./Footer.css";
 class Footer extends Component {
   render() {
     return (
@@ -9,7 +9,7 @@ class Footer extends Component {
           collapseOnSelect
           expand="sm"
           bg="#edeaea"
-          fixed="bottom"
+          sticky="bottom"
           className="footer"
         >
           <Navbar.Brand href="#home" className="textFooter">

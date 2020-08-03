@@ -52,9 +52,7 @@ class BarreMenu extends Component {
   componentDidMount() {
     this.connect();
   }
-  componentDidUpdate(prevprops) {
-    this.connect();
-  }
+
   render() {
     return (
       <div className="barre-de-menu">

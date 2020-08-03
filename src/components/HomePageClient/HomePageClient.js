@@ -15,9 +15,11 @@ class HomePageClient extends Component {
             <Card.Text>
               Je veux donner un pourboire sans créer de compte.{" "}
             </Card.Text>
-            <Button variant="outline-warning" size="sm">
-              Go !
-            </Button>
+            <Link to="/ListeServeurs">
+              <Button variant="outline-warning" size="sm">
+                Go !
+              </Button>
+            </Link>
           </Card.Body>
         </Card>
 
@@ -41,36 +43,3 @@ class HomePageClient extends Component {
 }
 
 export default HomePageClient;
-/*<div className="connexion-container">
-          <Card className="text-center">
-            <div className="Titre">
-              <Card.Header>Tips sans compte client </Card.Header>
-            </div>
-            <Card.Body>
-              <Card.Text>
-                Je veux donner un pourboire sans créer de compte.
-              </Card.Text>
-              <Button variant="outline-warning" size="sm">
-                Go !
-              </Button>
-            </Card.Body>
-          </Card>
-        </div>
-
-        <div className="connexion-container">
-          <Card className="text-center">
-            <div className="Titre">
-              <Card.Header>Tips avec un compte client</Card.Header>
-            </div>
-            <Card.Body>
-              <Card.Text>
-                Je veux créer un compte / me connecter pour donner un pourboire
-                et faire partie de la Team TiptoThank !
-              </Card.Text>
-              <Link to="/connexion">
-                <Button variant="outline-warning" size="sm">
-                  Go !
-                </Button>
-              </Link>
-            </Card.Body>
-          </Card>*/
