@@ -24,7 +24,7 @@ class Cards extends Component {
         <Card>
           <Card.Img
             variant="top"
-            src={"http://localhost:4000" + this.props.image}
+            src={"http://localhost:8080" + this.props.image}
           />
           <Card.Body>
             <Card.Title>{this.props.lastname}</Card.Title>

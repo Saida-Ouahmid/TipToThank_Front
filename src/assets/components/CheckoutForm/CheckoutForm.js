@@ -51,7 +51,7 @@ export default function CheckoutForm(props) {
       setProcessing(false);
     } else {
       const response = await fetch(
-        "http://localhost:4000/serveur/addtowallet",
+        "http://localhost:8080/serveur/addtowallet",
         {
           method: "POST",
           headers: {
@@ -73,7 +73,7 @@ export default function CheckoutForm(props) {
     e.preventDefault();
     // Create PaymentIntent as soon as the page loads
     window
-      .fetch("http://localhost:4000/client/create-payment-intent", {
+      .fetch("http://localhost:8080/client/create-payment-intent", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
