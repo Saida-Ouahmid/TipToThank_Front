@@ -47,6 +47,8 @@ class Liste extends Component {
           image={element.picture}
           lastname={element.lastname}
           firstname={element.firstname}
+          id={element._id}
+          history={this.props.history}
         />
       );
     });

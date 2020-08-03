@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import "./checkoutForm.css";
 import { Form, Button, Container } from "react-bootstrap";
-export default function CheckoutForm() {
+export default function CheckoutForm(props) {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
@@ -51,6 +51,19 @@ export default function CheckoutForm() {
       setError(`Payment failed ${payload.error.message}`);
       setProcessing(false);
     } else {
+      const response = await fetch(
+        "http://localhost:4000/serveur/addtowallet",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: props.serveurId,
+            amount: amount,
+          }),
+        }
+      );
       setError(null);
       setProcessing(false);
       setSucceeded(true);
