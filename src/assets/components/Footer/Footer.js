@@ -9,7 +9,7 @@ class Footer extends Component {
           collapseOnSelect
           expand="sm"
           bg="#edeaea"
-          fixed="bottom"
+          sticky="bottom"
           className="footer"
         >
           <Navbar.Brand href="#home" className="textFooter">
