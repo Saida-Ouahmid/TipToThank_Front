@@ -21,7 +21,7 @@ class DailyMenu extends Component {
       headers: headers,
     };
 
-    fetch("http://localhost:4000/client/getMenu", options)
+    fetch("http://localhost:8080/client/getMenu", options)
       .then((response) => {
         return response.json();
       })
@@ -54,7 +54,7 @@ class DailyMenu extends Component {
           </Card.Body>
           <Card.Img
             variant="top"
-            src={"http://localhost:4000/" + this.state.menu.dailyMenu.picture}
+            src={"http://localhost:8080/" + this.state.menu.dailyMenu.picture}
             className="dailyMenu"
             alt="Menu du Jour"
           />

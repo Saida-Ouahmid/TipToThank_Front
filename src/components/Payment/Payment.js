@@ -3,7 +3,11 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../../assets/components/CheckoutForm/CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
 
-const promise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+import "./payment.css";
+
+const promise = loadStripe(
+  "pk_test_51HB1h7BOgY8YXSrNpdYnU4BaQSHEnD5FVzxoSsRAJwCL22oNSBeog2fCLK8UmmVYEVNTMFsX7CG3Of0kAYSfVecP00zEdRuCGV"
+);
 
 class Payment extends Component {
   render() {

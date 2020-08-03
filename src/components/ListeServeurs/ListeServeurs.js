@@ -23,7 +23,7 @@ class Liste extends Component {
       /*body: JSON.stringify(data),*/
     };
 
-    fetch("http://localhost:4000/client/getDataServeur", options)
+    fetch("http://localhost:8080/client/getDataServeur", options)
       .then((response) => {
         return response.json();
       })

@@ -1,30 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import "./checkoutForm.css";
+import { Form, Button, Container } from "react-bootstrap";
 export default function CheckoutForm() {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [showPayment, setShowPayment] = useState(false);
   const stripe = useStripe();
   const elements = useElements();
-  useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
-    window
-      .fetch("/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
-      })
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setClientSecret(data.clientSecret);
-      });
-  }, []);
+
   const cardStyle = {
     style: {
       base: {
@@ -68,33 +56,79 @@ export default function CheckoutForm() {
       setSucceeded(true);
     }
   };
-  return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <CardElement
-        id="card-element"
-        options={cardStyle}
-        onChange={handleChange}
-      />
-      <button disabled={processing || disabled || succeeded} id="submit">
-        <span id="button-text">
-          {processing ? <div className="spinner" id="spinner"></div> : "Pay"}
-        </span>
-      </button>
-      {/* Show any error that happens when processing the payment */}
-      {error && (
-        <div className="card-error" role="alert">
-          {error}
-        </div>
-      )}
-      {/* Show a success message upon completion */}
-      <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment succeeded, see the result in your
-        <a href={`https://dashboard.stripe.com/test/payments`}>
-          {" "}
-          Stripe dashboard.
-        </a>{" "}
-        Refresh the page to pay again.
-      </p>
-    </form>
-  );
+
+  const createPaymentIntent = (e) => {
+    e.preventDefault();
+    // Create PaymentIntent as soon as the page loads
+    window
+      .fetch("http://localhost:8080/client/create-payment-intent", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ items: [{ id: "tips" }], amount: amount }),
+      })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setClientSecret(data.clientSecret);
+        setShowPayment(true);
+      });
+  };
+  const displayForm = () => {
+    //pour swicher vers le payement CB quand le montant est validé
+    if (!showPayment) {
+      return (
+        <Container className="blocprincipal">
+          <Form onSubmit={createPaymentIntent}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Montant du pourboire en € :</Form.Label>
+              <Form.Control
+                type="number"
+                min="0"
+                step="0.01" // le minum entre deux montant
+                name="amount"
+                onChange={(e) => setAmount(e.target.value)}
+                value={amount}
+              />
+            </Form.Group>
+            <Button variant="outline-warning" size="sm" type="submit">
+              Donner
+            </Button>
+          </Form>
+        </Container>
+      );
+    }
+    return (
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <CardElement
+          id="card-element"
+          options={cardStyle}
+          onChange={handleChange}
+        />
+        <button disabled={processing || disabled || succeeded} id="submit">
+          <span id="button-text">
+            {processing ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              "Envoyer le tips"
+            )}
+          </span>
+        </button>
+        {/* Show any error that happens when processing the payment */}
+        {error && (
+          <div className="card-error" role="alert">
+            {error}
+          </div>
+        )}
+        {/* Show a success message upon completion */}
+        <p
+          className={succeeded ? "result-message" : "result-message hidden"}
+        ></p>
+      </form>
+    );
+  };
+
+  return <div>{displayForm()}</div>;
 }
