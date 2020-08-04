@@ -39,7 +39,7 @@ class App extends Component {
             <Route path="/Home" exact component={HomePageClient} />
             <Route path="/ListeServeurs" exact component={Liste} />
             <Route path="/Payment" exact component={Payment} />
-            <Route path="/Menu" exact component={Menu} />
+            <Route path="/LaBrasseRit" exact component={Menu} />
           </Switch>
           <Footer />
         </Router>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./footer.css";
 class Footer extends Component {
   render() {
@@ -12,9 +13,11 @@ class Footer extends Component {
           fixed="bottom"
           className="footer"
         >
-          <Navbar.Brand href="#home" className="textFooter">
-            #TiptoThank
-          </Navbar.Brand>
+          <Link to="/Home">
+            <Navbar.Brand href="#home" className="textFooter">
+              #TiptoThank
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav">
             <i class="fas fa-book-open"></i>
           </Navbar.Toggle>

@@ -43,14 +43,9 @@ class DailyMenu extends Component {
     return (
       <Container className="blocprincipal">
         <Card>
-          <Link to="/Home">
-            <Button className="button" variant="warning" size="sm">
-              Donner un pourboire
-            </Button>
-          </Link>
-          <h2 className="Titre">Menu du Jour</h2>
+          <h2 className="Titre">MENU DU JOUR</h2>
           <Card.Body>
-            <p>{this.state.menu.dailyMenu.label}</p>
+            <p className="datemenu">{this.state.menu.dailyMenu.label}</p>
           </Card.Body>
           <Card.Img
             variant="top"
@@ -58,6 +53,11 @@ class DailyMenu extends Component {
             className="dailyMenu"
             alt="Menu du Jour"
           />
+          <Link to="/Home">
+            <Button className="button" variant="outline-warning" size="lg">
+              POURBOIRE
+            </Button>
+          </Link>
         </Card>
       </Container>
     );

@@ -59,7 +59,7 @@ class Liste extends Component {
   render() {
     return (
       <div>
-        <h1 className="Titre">Liste des Serveurs</h1>
+        <h1 className="Titre">LISTE DES SERVEURS</h1>
         {this.display()}
       </div>
     );

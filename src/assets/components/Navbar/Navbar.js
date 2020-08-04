@@ -58,7 +58,7 @@ class BarreMenu extends Component {
       <div className="barre-de-menu">
         <Navbar expand="lg">
           <Nav.Link>
-            <Link to="/HomeGeneral">
+            <Link to="/Home">
               <img src="logoTTT/logotranspblanc.png" className="logo" />
             </Link>
           </Nav.Link>

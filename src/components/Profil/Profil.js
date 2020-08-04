@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
 
 //import Historique from "../Historique/Historique";
 
@@ -18,6 +19,11 @@ class Client extends Component {
       client: { historique: [] },
     };
   }
+  click = () => {
+    this.props.history.push({
+      pathname: "/ListeServeurs",
+    });
+  };
 
   /* dataHistorique = () => {
     let contentDataHistorique = [];
@@ -169,6 +175,14 @@ class Client extends Component {
   render() {
     return (
       <Container className="blocprincipal ">
+        <Button
+          className="buttontip"
+          variant="warning"
+          size="sm"
+          onClick={this.click}
+        >
+          POURBOIRE
+        </Button>
         <p className="Titre-profil">MON PROFIL CLIENT</p>
         <div className="Titre">
           <Button
@@ -268,11 +282,10 @@ class Client extends Component {
         >
           <i class="far fa-trash-alt"></i>
         </Button>
-        <br /> <br /> <br />
+        <br></br>
+        <br></br>
+        <br></br> <br></br> <br></br>
         <p>{this.state.message}</p>
-        {/* <h3 className="tableau">Historique de vos tips</h3>
-
-    <div className="historique">{this.dataHistorique()}</div>*/}
       </Container>
     );
   }

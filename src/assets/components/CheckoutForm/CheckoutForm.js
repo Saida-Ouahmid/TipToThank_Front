@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import "./checkoutForm.css";
+//import "./checkoutForm.css";
 import { Form, Button, Container } from "react-bootstrap";
 export default function CheckoutForm(props) {
   const [succeeded, setSucceeded] = useState(false);
@@ -67,6 +67,8 @@ export default function CheckoutForm(props) {
       setError(null);
       setProcessing(false);
       setSucceeded(true);
+      alert("Merci pour le pourboire ! ");
+      //this.props.history.push("/Home");
     }
   };
 

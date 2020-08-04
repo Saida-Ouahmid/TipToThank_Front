@@ -12,9 +12,7 @@ class HomePageClient extends Component {
         <Card className="text-center">
           <Card.Header>Tips sans compte client</Card.Header>
           <Card.Body>
-            <Card.Text>
-              Je veux donner un pourboire sans créer de compte.{" "}
-            </Card.Text>
+            <Card.Text>Donner un pourboire sans créer de compte. </Card.Text>
             <Link to="/ListeServeurs">
               <Button variant="outline-warning" size="sm">
                 Go !
@@ -27,7 +25,7 @@ class HomePageClient extends Component {
           <Card.Header>Tips avec compte client</Card.Header>
           <Card.Body>
             <Card.Text>
-              Je veux créer un compte / me connecter et faire partie de la Team
+              Créer un compte / me connecter et faire partie de la Team
               TiptoThank !<i class="fab fa-angellist"></i>
             </Card.Text>
             <Link to="/Connexion">
